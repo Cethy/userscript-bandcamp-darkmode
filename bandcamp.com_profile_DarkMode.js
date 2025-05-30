@@ -3,7 +3,7 @@
 // @namespace   cw.bandcamp.com_profile_DarkMode
 // @match       https://bandcamp.com/*
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      Charles
 // @homepage    https://github.com/Cethy/userscript-bandcamp-darkmode
 // @description Add switchable dark mode styling + auto-toggle if computer setup for preferred dark color scheme, but only on bandcamp profile pages !
@@ -90,8 +90,9 @@ body.dark-mode .fan-bio .edit-profile > a {
   color: #fff;
 }
 
+body.dark-mode form.menubar-search button.menubar-search-icon,
 body.dark-mode #cw__toggleDarkMode svg g {
-    fill: #fff;
+  fill: #fff;
 }
 body.dark-mode .menubar-2018 .svg-icon,
 body.dark-mode .carousel-player .queue-icon,
@@ -140,8 +141,21 @@ body.dark-mode .carousel-player .vol-control {
 
 body.dark-mode .carousel-player .transport .icon.next-icon,
 body.dark-mode .carousel-player .transport .icon.prev-icon {
-    filter: invert(1)
+  filter: invert(1)
 }
+
+body.dark-mode select#following-genre-visibility,
+body.dark-mode .grids .search .search-box,
+body.dark-mode div.header-discover-2023 form.menubar-search input[type=text] {
+  background: rgba(35, 35, 35);
+  color: #fff;
+  border: 1px solid rgba(243,243,243,0.5);
+}
+body.dark-mode div.header-discover-2023 form.menubar-search input[type=text]::placeholder {
+  color: rgba(255,255,255,0.75) !important;
+}
+
+
         `;
         const style = document.createElement('style');
         style.textContent = darkStyles;
